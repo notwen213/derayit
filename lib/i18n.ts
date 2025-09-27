@@ -1,0 +1,81 @@
+export type Locale = "en" | "sw" | "yo" | "ha" | "am" | "ar"
+
+export const dictionaries = {
+  en: {
+    "app.name": "HederaShield",
+    "app.title": "Inclusive Web3 markets for rural communities",
+    "app.tagline": "Trade products, verify government payments, and prevent scams with Hedera-native AI.",
+    "cta.getStarted": "Get started",
+    "cta.learnMore": "Learn more",
+    "nav.marketplace": "Marketplace",
+    "nav.verify": "Verify Payments",
+    "nav.tokenize": "Tokenize Assets",
+    "nav.govern": "Governance",
+    "nav.dashboard": "Metrics Dashboard",
+  },
+  sw: {
+    "app.name": "HederaShield",
+    "app.title": "Masoko ya Web3 jumuishi kwa jamii za vijijini",
+    "app.tagline": "Uza na ununue bidhaa, hakiki malipo ya serikali, na epuka ulaghai kwa AI ya Hedera.",
+    "cta.getStarted": "Anza",
+    "cta.learnMore": "Jifunze zaidi",
+    "nav.marketplace": "Soko",
+    "nav.verify": "Hakikisha Malipo",
+    "nav.tokenize": "Geuza Mali kuwa Tokeni",
+    "nav.govern": "Utawala",
+    "nav.dashboard": "Dashibodi ya Vipimo",
+  },
+  yo: {
+    "app.name": "HederaShield",
+    "app.title": "Ọjà Web3 fun awọn agbegbe abẹ́yẹfẹ̀",
+    "app.tagline": "Ṣowo, jẹrìí sisan owó ijọba, kí o sì yago fun ìtanràn nípa AI Hedera.",
+    "cta.getStarted": "Bẹrẹ",
+    "cta.learnMore": "Kọ ẹ̀kọ síi",
+    "nav.marketplace": "Ọjà",
+    "nav.verify": "Ìmúdájú sísan",
+    "nav.tokenize": "Tokenize Ìní",
+    "nav.govern": "Ìṣàkóso",
+    "nav.dashboard": "Dasibodu Mẹ́tíríkì",
+  },
+  ha: {
+    "app.name": "HederaShield",
+    "app.title": "Kasuwannin Web3 masu haɗawa ga ƙauyuka",
+    "app.tagline": "Yi cinikayya, duba kuɗin gwamnati, ka hana zamba da AI na Hedera.",
+    "cta.getStarted": "Fara",
+    "cta.learnMore": "Kara koyo",
+    "nav.marketplace": "Kasuwanci",
+    "nav.verify": "Tabbatar da Biyan Kuɗi",
+    "nav.tokenize": "Token ɗin Kadarori",
+    "nav.govern": "Mulki",
+    "nav.dashboard": "Allon Ma'auni",
+  },
+  am: {
+    "app.name": "HederaShield",
+    "app.title": "ለገጠር ማህበረሰብ የ Web3 ገበያ",
+    "app.tagline": "ምርቶችን ይሸጡ/ይግዙ፣ የመንግሥት ክፍያዎችን ያረጋግጡ፣ ከማታለያ ጋር ተዋጉ በ Hedera AI.",
+    "cta.getStarted": "ጀምር",
+    "cta.learnMore": "ተጨማሪ መረጃ",
+    "nav.marketplace": "ገበያ",
+    "nav.verify": "ክፍያ ማረጋገጫ",
+    "nav.tokenize": "ንብረት መቶከናይዜሽን",
+    "nav.govern": "አስተዳደር",
+    "nav.dashboard": "መረጃ ሰሌዳ",
+  },
+  ar: {
+    "app.name": "هيديرا شيلد",
+    "app.title": "أسواق Web3 شاملة للمجتمعات الريفية",
+    "app.tagline": "تداول السلع وتحقق من مدفوعات الحكومة وتجنب الاحتيال باستخدام ذكاء هيديرا.",
+    "cta.getStarted": "ابدأ",
+    "cta.learnMore": "اعرف المزيد",
+    "nav.marketplace": "السوق",
+    "nav.verify": "تحقق من المدفوعات",
+    "nav.tokenize": "ترميز الأصول",
+    "nav.govern": "الحوكمة",
+    "nav.dashboard": "لوحة المؤشرات",
+  },
+} as const
+
+export function tFactory(locale: Locale) {
+  const dict = dictionaries[locale]
+  return (key: keyof (typeof dictionaries)["en"]) => dict[key] ?? String(key)
+}
